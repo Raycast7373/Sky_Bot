@@ -54,6 +54,7 @@ def hello_world():
 @app.route('/UPDATE/')
 def UPDATE():
     subprocess.run(["bash", "/usr/src/app/src/update.sh"])
+    return redirect("/")
     sys.exit("Updating...")
 
 if __name__ == '__main__':
