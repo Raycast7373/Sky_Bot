@@ -1,4 +1,3 @@
-from flask import Flask, redirect
 import discord
 from discord.ext import commands
 import random
@@ -31,14 +30,6 @@ except ValueError:
     print("Error! Invalid ID detected,ID is not a number! terminating...")
     IsClusterIDNum = 'FALSE'
 
-#if ClusterID == BadID:
-#    print("Error! Invalid ID detected, terminating...")
-#    ERROR = 'TRUE'
-#else:
-#    print("No ClusterID error found! Starting...")
-#    ERROR = 'FALSE'
-
-app = Flask(__name__)
 D1 = 'ClusterID: ' + ClusterID
 D2 = '\nDiscordToken: ' + DiscordToken
 D3 = '\nRevoltToken: ' + RevoltToken
@@ -47,18 +38,6 @@ D5 = '\nIDVALID: ' + IDVALID
 T = [D1, D2, D3, D4, D5]
 DATA = '\n'.join(T)
 print(DATA)
-
-@app.route('/')
-def hello_world():
-    return DATA
-
-
-@app.route('/UPDATE/')
-def UPDATE():
-    subprocess.run(["bash", "/usr/src/app/src/update.sh"])
-    return redirect("/")
-    exit()
-
 
 
 description = '''UwU'''
@@ -112,7 +91,13 @@ async def repeat(ctx, times: int, content='repeating...'):
 async def joined(ctx, member: discord.Member):
     """Says when a member joined."""
     await ctx.send(f'{member.name} joined in {member.joined_at}')
-
+    
+@bot.command()
+async def Update(ctx):
+    """Adds two numbers together."""
+    await ctx.send(f'Gonna update now, bye!')
+    subprocess.run(["bash", "/usr/src/app/src/update.sh"])
+    exit()
 
 @bot.group()
 async def cool(ctx):
@@ -130,7 +115,3 @@ async def _bot(ctx):
 
 
 bot.run(DiscordToken)
-
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=80)
-
