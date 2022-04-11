@@ -1,5 +1,6 @@
 from flask import Flask
 
+print("test")
 
 import os
 BadID = 'NONE'
