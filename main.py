@@ -76,7 +76,6 @@ class MyClient(discord.Client):
             await message.channel.send('pong')
 
 intents = discord.Intents.default()
-intents.message_content = True
 client = discord.AutoShardedClient(shard_count=1)
 client.run(DiscordToken)
 
