@@ -42,7 +42,9 @@ D2 = '\nDiscordToken: ' + DiscordToken
 D3 = '\nRevoltToken: ' + RevoltToken
 D4 = '\nIsClusterIDNum: ' + IsClusterIDNum
 D5 = '\nIDVALID: ' + IDVALID
-DATA = D1 + D2 + D3 + D4 + D5
+T = [D1, D2, D3, D4, D5]
+DATA = '\n'.join(T)
+print(DATA)
 
 @app.route('/')
 def hello_world():
