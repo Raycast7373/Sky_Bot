@@ -18,7 +18,7 @@ print("RevoltToken: ",RevoltToken)
 try:
     int(ClusterID)
     print("ID is a number!")
-    IsClusterIDNum = True
+    IsClusterIDNum = 'TRUE'
     if LOWID <= ClusterID <= HIGHID:
         print("Number is Valid!")
         IDVALID = 'TRUE'
@@ -27,7 +27,7 @@ try:
         IDVALID = 'FALSE'
 except ValueError:
     print("Error! Invalid ID detected,ID is not a number! terminating...")
-    IsClusterIDNum = False
+    IsClusterIDNum = 'FALSE'
 
 #if ClusterID == BadID:
 #    print("Error! Invalid ID detected, terminating...")
