@@ -94,7 +94,6 @@ async def joined(ctx, member: discord.Member):
     
 @bot.command()
 async def Update(ctx):
-    """Adds two numbers together."""
     await ctx.send(f'Gonna update now, bye!')
     subprocess.run(["bash", "/usr/src/app/src/update.sh"])
     exit()
