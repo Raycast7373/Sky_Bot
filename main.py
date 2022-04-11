@@ -64,7 +64,7 @@ description = '''UwU'''
 activity = discord.Activity(type=discord.ActivityType.listening, name="Hi")
 intents = discord.Intents.default()
 intents.members = True
-intents.message_content = True
+
 
 bot = commands.Bot(command_prefix='?', description=description, activity=activity, intents=intents)
 
