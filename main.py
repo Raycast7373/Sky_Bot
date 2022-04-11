@@ -55,7 +55,7 @@ def hello_world():
 def UPDATE():
     subprocess.run(["bash", "/usr/src/app/src/update.sh"])
     return redirect("/")
-    sys.exit("Updating...")
+    exit()
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80)
