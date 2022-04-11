@@ -1,6 +1,8 @@
 from flask import Flask
 
+import subprocess
 import os
+import sys
 BadID = 'NONE'
 ClusterID = os.getenv('Cluster_ID')
 DiscordToken = os.getenv('Discord_Token')
@@ -46,6 +48,13 @@ def hello_world():
     return IsClusterIDNum
     return 'IDVALID:'
     return IDVALID
+
+
+@app.route('/UPDATE')
+def UPDATE():
+    return 'Updating...'
+    subprocess.run(["bash", "/usr/src/app/src/update.sh"])
+    sys.exit("Updating...")
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80)
