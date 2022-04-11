@@ -56,7 +56,6 @@ def hello_world():
 
 @app.route('/UPDATE/')
 def UPDATE():
-    return 'Updating...'
     subprocess.run(["bash", "/usr/src/app/src/update.sh"])
     sys.exit("Updating...")
 
