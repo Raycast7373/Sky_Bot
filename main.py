@@ -59,24 +59,24 @@ def UPDATE():
     exit()
 
 
-
+client = discord.AutoShardedClient(shard_count=1)
     
 SHARD = 'Shard ' + ClusterID
 activity = discord.Activity(type=discord.ActivityType.watching, name=SHARD)
-class MyClient(discord.Client):
-    async def on_ready(self):
-        print('Logged on as', self.user)
+@client.event
+async def on_ready():
+    print('We have logged in as {0.user}'.format(client))
 
-    async def on_message(self, message):
-        # don't respond to ourselves
-        if message.author == self.user:
-            return
+@client.event
+async def on_message(message):
+    if message.author == client.user:
+        return
 
-        if message.content == 'ping':
-            await message.channel.send('pong')
+    if message.content.startswith('$hello'):
+        await message.channel.send('Hello!')
 
 intents = discord.Intents.default()
-client = discord.AutoShardedClient(shard_count=1)
+
 client.run(DiscordToken)
 
 if __name__ == '__main__':
