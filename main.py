@@ -1,6 +1,7 @@
 from flask import Flask, redirect
 import discord
-import discord.ext
+from discord.ext import commands
+import random
 import subprocess
 import os
 import sys
