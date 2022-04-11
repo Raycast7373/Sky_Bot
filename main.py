@@ -62,22 +62,23 @@ def UPDATE():
 client = discord.AutoShardedClient(shard_count=1)
     
 SHARD = 'Shard ' + ClusterID
-activity = discord.Activity(type=discord.ActivityType.watching, name=SHARD)
+
 @client.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
 
-@client.event
-async def on_message(message):
-    if message.author == client.user:
-        return
 
-    if message.content.startswith('$hello'):
-        await message.channel.send('Hello!')
 
+activity = discord.Activity(type=discord.ActivityType.watching, name=SHARD)
 intents = discord.Intents.default()
+intents.message_content = True
+bot = commands.Bot(command_prefix="!", activity=activity, status=discord.Status.idle)
 
-client.run(DiscordToken)
+@bot.command()
+async def ping(ctx):
+    await ctx.send('pong')
+
+bot.run('token')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80)
