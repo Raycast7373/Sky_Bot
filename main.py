@@ -1,5 +1,6 @@
 from flask import Flask, redirect
-
+import discord
+import discord.ext
 import subprocess
 import os
 import sys
@@ -59,3 +60,24 @@ def UPDATE():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80)
+
+    
+SHARD = 'Shard ' + ClusterID
+activity = discord.Activity(type=discord.ActivityType.watching, name=SHARD)
+class MyClient(discord.Client):
+    async def on_ready(self):
+        print('Logged on as', self.user)
+
+    async def on_message(self, message):
+        # don't respond to ourselves
+        if message.author == self.user:
+            return
+
+        if message.content == 'ping':
+            await message.channel.send('pong')
+
+intents = discord.Intents.default()
+intents.message_content = True
+client = discord.AutoShardedClient(shard_count=1)
+client.run(DiscordToken)
+
