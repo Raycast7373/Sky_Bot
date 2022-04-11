@@ -37,20 +37,21 @@ except ValueError:
 #    ERROR = 'FALSE'
 
 app = Flask(__name__)
-
-
+D1 = 'ClusterID: ' + ClusterID
+D2 = 'DiscordToken: ' + DiscordToken
+D3 = 'RevoltToken: ' + RevoltToken
+D4 = 'IsClusterIDNum: ' + IsClusterIDNum
+D5 = 'IDVALID: ' + IDVALID
+DATA = """D1
+D2
+D3
+D4
+D5
+D6
+"""
 @app.route('/')
 def hello_world():
-    return 'ClusterID:'
-    return ClusterID
-    return 'DiscordToken:'
-    return DiscordToken
-    return 'RevoltToken:'
-    return RevoltToken
-    return 'IsClusterIDNum:'
-    return IsClusterIDNum
-    return 'IDVALID:'
-    return IDVALID
+    return DATA
 
 
 @app.route('/UPDATE')
