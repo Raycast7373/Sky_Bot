@@ -71,7 +71,6 @@ async def on_ready():
 
 activity = discord.Activity(type=discord.ActivityType.watching, name=SHARD)
 intents = discord.Intents.default()
-intents.message_content = True
 bot = commands.Bot(command_prefix="!", activity=activity, status=discord.Status.idle)
 
 @bot.command()
