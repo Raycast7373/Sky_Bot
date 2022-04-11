@@ -16,7 +16,7 @@ try:
     int(ClusterID)
     print("ID is a number!")
     IsClusterIDNum = True
-    if 0 <= number <= 16:
+    if 0 <= ClusterID <= 16:
         print("Number is Valid!")
         IDVALID = 'TRUE'
     else:
