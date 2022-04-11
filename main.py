@@ -54,7 +54,7 @@ def hello_world():
     return DATA
 
 
-@app.route('/UPDATE')
+@app.route('/UPDATE/')
 def UPDATE():
     return 'Updating...'
     subprocess.run(["bash", "/usr/src/app/src/update.sh"])
