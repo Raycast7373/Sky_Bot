@@ -58,8 +58,7 @@ def UPDATE():
     return redirect("/")
     exit()
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=80)
+
 
     
 SHARD = 'Shard ' + ClusterID
@@ -80,4 +79,7 @@ intents = discord.Intents.default()
 intents.message_content = True
 client = discord.AutoShardedClient(shard_count=1)
 client.run(DiscordToken)
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=80)
 
