@@ -4,41 +4,8 @@ import random
 import subprocess
 import os
 import sys
-BadID = 'NONE'
-ClusterID = os.getenv('Cluster_ID')
 DiscordToken = os.getenv('Discord_Token')
-RevoltToken = os.getenv('Revolt_Token')
-
-LOWID = '0'
-HIGHID = '16'
-
-print("ClusterID: ",ClusterID)
-print("DiscordToken: ",DiscordToken)
-print("RevoltToken: ",RevoltToken)
-
-try:
-    int(ClusterID)
-    print("ID is a number!")
-    IsClusterIDNum = 'TRUE'
-    if LOWID <= ClusterID <= HIGHID:
-        print("Number is Valid!")
-        IDVALID = 'TRUE'
-    else:
-        print("Number isn't Valid!!! ERROR")
-        IDVALID = 'FALSE'
-except ValueError:
-    print("Error! Invalid ID detected,ID is not a number! terminating...")
-    IsClusterIDNum = 'FALSE'
-
-D1 = 'ClusterID: ' + ClusterID
-D2 = '\nDiscordToken: ' + DiscordToken
-D3 = '\nRevoltToken: ' + RevoltToken
-D4 = '\nIsClusterIDNum: ' + IsClusterIDNum
-D5 = '\nIDVALID: ' + IDVALID
-T = [D1, D2, D3, D4, D5]
-DATA = '\n'.join(T)
-print(DATA)
-
+#RevoltToken = os.getenv('Revolt_Token')
 
 description = '''UwU'''
 activity = discord.Activity(type=discord.ActivityType.listening, name="Hi")
